@@ -17,5 +17,21 @@
         {{ if .Site.Params.listSummaries }}
         <p class="line-summary"> {{ .Summary }} </p>
         {{ end }}
+
+        <button onclick="toggleContent('{{ .File.Path }}')">Read more</button>
+        <div id="{{ .File.Path }}" style="display: none;">
+            {{ .Content }}
+        </div>
     </div>
 </div>
+
+<script>
+function toggleContent(id) {
+    var content = document.getElementById(id);
+    if (content.style.display === "none") {
+        content.style.display = "block";
+    } else {
+        content.style.display = "none";
+    }
+}
+</script>
