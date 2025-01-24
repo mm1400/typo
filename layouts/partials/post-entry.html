@@ -20,7 +20,24 @@
 
         <button onclick="toggleContent('{{ .File.Path }}')">Read more...</button>
         <div id="{{ .File.Path }}" style="display: none;">
+            
+            {{ if .Param "showTags" }}
+            {{ $taxonomy := "tags" }}
+            {{ with .Param $taxonomy }}
+            <div class="post-tags">
+                {{ range $index, $tag := . }}
+                {{ with $.Site.GetPage (printf "/%s/%s" $taxonomy $tag) -}}
+                <span class="tag">
+                    <a href="{{ .Permalink }}">#{{ .LinkTitle }}</a>
+                </span>
+                {{ end }}
+                {{ end }}
+            </div>
+            {{ end }}
+            {{ end }}
+
             {{ .Content }}
+
         </div>
     </div>
 </div>
