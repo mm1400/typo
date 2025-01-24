@@ -18,7 +18,7 @@
         <p class="line-summary"> {{ .Summary }} </p>
         {{ end }}
 
-        <button onclick="toggleContent('{{ .File.Path }}')">Read more</button>
+        <button onclick="toggleContent('{{ .File.Path }}')">Read more...</button>
         <div id="{{ .File.Path }}" style="display: none;">
             {{ .Content }}
         </div>
