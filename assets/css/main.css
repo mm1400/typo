@@ -204,6 +204,10 @@ footer a {
   align-items: baseline;
 }
 
+.post-tags {
+  margin: 1rem 0;
+}
+
 .tag-line {
   margin-bottom: .5rem;
   display: flex;
