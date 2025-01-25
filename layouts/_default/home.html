@@ -35,9 +35,7 @@
 {{ if .Site.Params.homeCollection }}
 
 <div class="list-container">
-    {{ with .Site.Params.homeCollectionTitle}}
-    <h1> {{ . }} </h1>
-    {{ end }}
+    <h1 id="{{ .Site.Params.homeCollection }}"> {{ .Site.Params.homeCollectionTitle }} </h1>
 
     {{ $pages := where .Site.RegularPages "Section" .Site.Params.homeCollection
     }}
