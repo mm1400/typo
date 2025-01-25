@@ -5,8 +5,9 @@
     {{ $dateFormat = .}}
     {{ end }}
 
+    {{ if .Site.Params.showPostDate }}
     <p class="line-date">{{ .Date | time.Format $dateFormat }} </p>
-
+    {{ end }}
     <div>
         <p class="line-title">
             <a href="{{ .RelPermalink }}">
@@ -20,7 +21,7 @@
 
         <button onclick="toggleContent('{{ .File.Path }}')">Read more...</button>
         <div id="{{ .File.Path }}" style="display: none;">
-            
+
             {{ if .Param "showTags" }}
             {{ $taxonomy := "tags" }}
             {{ with .Param $taxonomy }}
