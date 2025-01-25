@@ -56,4 +56,14 @@
     {{ end }}
 </div>
 
+{{ if or .Site.Params.homeEndTitle .Site.Params.homeEndContent }}
+<div class="end">
+    <h2 id="{{ .Site.Params.homeEnd }}">{{ .Site.Params.homeEndTitle }}</h2>
+
+    {{ with .Site.Params.homeEndContent }}
+    <p>{{ . | markdownify }}</p>
+    {{ end }}
+</div>
+{{ end }}
+
 {{ end }}
