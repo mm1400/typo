@@ -20,7 +20,7 @@
         {{ end }}
 
         <button onclick="toggleContent('{{ .File.Path }}')">Read more...</button>
-        <div id="{{ .File.Path }}" style="display: none;">
+        <div id="{{ .File.Path }}" class="closed-post">
 
             {{ if .Param "showTags" }}
             {{ $taxonomy := "tags" }}
@@ -46,10 +46,12 @@
 <script>
 function toggleContent(id) {
     var content = document.getElementById(id);
-    if (content.style.display === "none") {
-        content.style.display = "block";
+    if (content.classList.contains("closed-post")) {
+        content.classList.remove("closed-post");
+        content.classList.add("expanded-post");
     } else {
-        content.style.display = "none";
+        content.classList.remove("expanded-post");
+        content.classList.add("closed-post");
     }
 }
 </script>

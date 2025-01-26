@@ -219,6 +219,18 @@ footer a {
   margin-bottom: 0rem;
 }
 
+.closed-post {
+    max-height: 0;
+    overflow:hidden;
+    transition: max-height 0.5s, overflow 0.5s;
+}
+
+.expanded-post {
+    max-height: 30em;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    transition: max-height 0.5s, overflow 0.5s 0.5s;
+}
 .line-date {
   font-size: small;
   font-family: var(--font-mono);
