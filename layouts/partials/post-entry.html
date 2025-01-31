@@ -19,7 +19,7 @@
         <p class="line-summary"> {{ .Summary }} </p>
         {{ end }}
 
-        <a onclick="toggleContent('{{ .File.Path }}')">Read more...</a>
+        <a onclick="toggleContent('{{ .File.Path }}')" class="read-more small">Read more...</a>
         <div id="{{ .File.Path }}" class="closed-post">
 
             {{ if .Param "showTags" }}
