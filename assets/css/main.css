@@ -256,6 +256,10 @@ footer a {
   text-decoration: none;
 }
 
+.line-title a {
+  text-decoration: none;
+}
+
 .tag-title {
   margin: 0;
 }
