@@ -20,7 +20,13 @@
         {{ end }}
 
         <a onclick="toggleContent('{{ .File.Path }}')" class="read-more small">Read more...</a>
-        <div id="{{ .File.Path }}" class="closed-post">
+
+        {{ $expandClass := "closed-post" }}
+        {{ if .Params.expanded }}
+        {{ $expandClass = "expanded-post" }}
+        {{ end }}
+
+        <div id="{{ .File.Path }}" class=" {{ $expandClass }}">
 
             {{ if .Param "showTags" }}
             {{ $taxonomy := "tags" }}
