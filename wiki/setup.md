@@ -36,13 +36,11 @@ git submodule update --init --recursive
 
 **Hugo module**
 
-Installing Typo as a Hugo module requires Go to be installed in your development environment.
+Installing Typo as a [Hugo module](https://gohugo.io/hugo-modules/use-modules/) requires Go to be installed in your development environment.
 
 ```bash
 # Initialize your project as a Hugo module
 hugo mod init <module_name>
-# Install the theme
-hugo mod get github.com/tomfran/typo
 ```
 
 Then add the following to `hugo.toml`:
@@ -50,10 +48,11 @@ Then add the following to `hugo.toml`:
 ```toml
 [module]
 [[module.imports]]
-path = "github.com/tomfran/typo"
+path = "github.com/tomfran/typo/v3"
 ```
 
 Finally, remove the `theme = 'typo'` parameter from `hugo.toml`.
+When building the site, Hugo will automatically download the required modules.
 
 **Cloning**
 
@@ -83,11 +82,11 @@ languageCode = 'en-us'
 title = 'My website'
 theme = 'typo'
 
-[taxonomies]
-tag = 'tags'
-
 # Google analytics code
 googleAnalytics = "G-xxxxxxxxx"
+
+[taxonomies]
+tag = 'tags'
 
 [params]
 # Meta description
@@ -101,8 +100,7 @@ hideHeader = false
 # Intro on main page, content is markdown
 homeIntroTitle = 'Hi!'
 homeIntroContent = """
-I am an Italian Software Engineer with a strong foundation in computer science and a passion for solving complex problems.
-I am interested in a range of topics, including algorithms, distributed systems, databases, and information retrieval.
+My very long home intro
 """
 
 # Collection to display on home
@@ -115,7 +113,10 @@ listSummaries = true
 listDateFormat = '2 Jan 2006'
 
 # Breadcrumbs
-breadcrumbs = true
+[params.breadcrumbs]
+enabled = true
+showCurrentPage = true
+home = "Home"
 
 # Social icons
 [[params.social]]
@@ -146,7 +147,7 @@ url = "/about"
 # Syntax highlight on code blocks
 [markup]
 [markup.highlight]
-style = 'algol'
+noClasses = false
 
 # Giscus comments
 [params.giscus]
@@ -166,6 +167,8 @@ Sample post config.
 ```markdown
 ---
 title: "Log-Structured Merge Tree"
+author: "Francesco"
+authorAvatarPath: "/avatar.jpeg"
 date: "2023-11-12"
 summary: "An LSM Tree overview and Java implementation."
 description: "An LSM Tree overview and Java implementation."
